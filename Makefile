@@ -44,7 +44,7 @@ xcompile: install-gox install-deps
 	${GOPATH}/bin/gox ${LDFLAGS} --os="linux" -arch="amd64 arm64" .. && \
 	${GOPATH}/bin/gox ${LDFLAGS} --os="darwin" -arch="amd64" ..
 
-package: xcompile
+package: clean xcompile
 	cd build && \
 	for f in ${APPNAME}_*; do \
 	  mv $$f $${f}.bin && mkdir $${f}-${VERSION} && \

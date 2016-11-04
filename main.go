@@ -11,7 +11,7 @@ const VERSION = "0.1.0"
 var phrases = map[int64]string{
 	0:             "%s is not bytey at all.",
 	10:            "%s is a wee bit bytey.",
-	100:           "%s is bit bytey.",
+	100:           "%s is a bit bytey.",
 	1024:          "%s is somewhat bytey.", // kilobyte
 	10240:         "%s is pretty bytey.",
 	102400:        "%s is massively bytey.",
@@ -42,16 +42,12 @@ func bytey(file string, keys slice.Int64Slice) (string, int64) {
 
 func main() {
 
-	if len(os.Args) < 2 {
+	if len(os.Args) < 2 || os.Args[1] == "--help" {
 		fmt.Println("bytiness [file]")
 		os.Exit(0)
 	}
 	if os.Args[1] == "--version" {
 		fmt.Printf("bytiness %s\n", VERSION)
-		os.Exit(0)
-	}
-	if os.Args[1] == "--help" {
-		fmt.Println("bytiness [file]")
 		os.Exit(0)
 	}
 
